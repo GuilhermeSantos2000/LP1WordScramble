@@ -172,7 +172,6 @@ namespace WordScramble
                 
                 // Add row to table
                 // Table.AddRow() only accepts strings
-                // ////////// => TO IMPLEMENT <= //////////// //
             }
 
             AnsiConsole.Write(table);
@@ -180,5 +179,5 @@ namespace WordScramble
                 "\n[bold green]Press Enter to Return to Menu...[/]");
             Console.ReadLine();
         }
-    }
+    } 
 }
