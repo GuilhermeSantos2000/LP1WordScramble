@@ -25,7 +25,7 @@ namespace WordScramble
         /// </remarks>
         public WordProvider()
         {
-            random = // ////////// => TO IMPLEMENT <= //////////// //
+            random = new Random();
 
             string directoryPath = Path.GetFullPath(
                 Path.Combine(
@@ -39,7 +39,7 @@ namespace WordScramble
                 string[] fileWords = File.ReadAllLines(filePath);
                 foreach (string word in fileWords)
                 {
-                    string transformedWord = // ////////// => TO IMPLEMENT <= //////////// //
+                    string transformedWord = word.Transform(To.UpperCase);
                     words.Add(transformedWord);
                 }
             }
@@ -63,7 +63,8 @@ namespace WordScramble
         /// </remarks>
         public string GetRandomWord()
         {
-            // ////////// => TO IMPLEMENT <= //////////// //
+            int index = random.Next(words.Count);
+            return words[index];
         }
 
         /// <summary>
@@ -86,9 +87,9 @@ namespace WordScramble
             {
                 int j = random.Next(i, scrambled.Length);
 
-                char temp = // ////////// => TO IMPLEMENT <= //////////// //
-                scrambled[i] = // ////////// => TO IMPLEMENT <= //////////// //
-                scrambled[j] = // ////////// => TO IMPLEMENT <= //////////// //
+                char temp = scrambled[i];
+                scrambled[i] = scrambled[j];
+                scrambled[j] = temp;
             }
             return new string(scrambled);
         }
